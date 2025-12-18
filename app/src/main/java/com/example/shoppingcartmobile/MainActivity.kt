@@ -17,6 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
@@ -53,6 +54,19 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.ivMaps).setOnClickListener {
             val intent = Intent(this, MapsActivity::class.java)
             startActivity(intent)
+        }
+
+        // Admin icon click
+        findViewById<ImageView>(R.id.ivAdmin).setOnClickListener {
+            if (AdminLoginActivity.isAdminLoggedIn(this)) {
+                // Already logged in, go to dashboard
+                val intent = Intent(this, AdminDashboardActivity::class.java)
+                startActivity(intent)
+            } else {
+                // Need to login
+                val intent = Intent(this, AdminLoginActivity::class.java)
+                startActivity(intent)
+            }
         }
     }
 

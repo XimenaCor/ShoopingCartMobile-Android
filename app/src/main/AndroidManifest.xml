@@ -44,9 +44,18 @@
                 android:value=".MainActivity" />
         </activity>
 
+        <activity
+            android:name=".AdminLoginActivity"
+            android:theme="@style/Theme.ShoppingCartMobile" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDabKB9jRhHQU5LCXcMWGcrbcGtMI2aQWE" />
+
+        <activity
+            android:name=".AdminDashboardActivity"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.ShoppingCartMobile" />
 
     </application>
 

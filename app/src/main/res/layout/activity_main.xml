@@ -51,6 +51,17 @@
                 android:layout_marginStart="8dp"
                 android:contentDescription="Store Locations" />
 
+            <!-- Add this next to maps icon -->
+            <ImageView
+                android:id="@+id/ivAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_menu_manage"
+                app:tint="@android:color/white"
+                android:padding="8dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="Admin" />
+
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
