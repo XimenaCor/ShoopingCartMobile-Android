@@ -100,10 +100,7 @@ class CartActivity : AppCompatActivity() {
         // Clear cart after checkout
         cartManager.clearCart()
 
-        // Go back to main activity
-        val intent = Intent(this, MainActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        startActivity(intent)
+        // SIMPLIFIED: Just go back to previous activity
         finish()
     }
 

@@ -1,9 +1,12 @@
 package com.example.shoppingcartmobile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,16 +17,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-import android.widget.ImageView
-import android.content.Intent
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
     private lateinit var errorText: TextView
     private lateinit var adapter: ProductAdapter
-    private lateinit var cartManager: CartManager  // NEW
+    private lateinit var cartManager: CartManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,33 +34,26 @@ class MainActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
         errorText = findViewById(R.id.tvError)
 
-        // Make cart icon clickable
+        // Initialize CartManager
+        cartManager = CartManager(this)
+
+        // Setup RecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        // Load products
+        loadProducts()
+
+        // Cart icon click
         findViewById<ImageView>(R.id.ivCartIcon).setOnClickListener {
             val intent = Intent(this, CartActivity::class.java)
             startActivity(intent)
         }
 
-        // Initialize CartManager
-        cartManager = CartManager(this)  // NEW
-
-        // Setup RecyclerView
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = ProductAdapter(
-            products = emptyList(),
-            onItemClick = { product ->
-                showToast("Viewing: ${product.name}")
-                // We'll implement product details later
-            },
-            onAddToCart = { product ->  // NEW: Handle add to cart
-                cartManager.addToCart(product)
-                val count = cartManager.getItemCount()
-                showToast("Added to cart! Total items: $count")
-            }
-        )
-        recyclerView.adapter = adapter
-
-        // Load products
-        loadProducts()
+        // Maps icon click
+        findViewById<ImageView>(R.id.ivMaps).setOnClickListener {
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun loadProducts() {
@@ -79,12 +72,12 @@ class MainActivity : AppCompatActivity() {
                         adapter = ProductAdapter(
                             products = products,
                             onItemClick = { product ->
-                                showToast("Viewing: ${product.name}")
+                                Toast.makeText(this@MainActivity, "Viewing: ${product.name}", Toast.LENGTH_SHORT).show()
                             },
                             onAddToCart = { product ->
                                 cartManager.addToCart(product)
                                 val count = cartManager.getItemCount()
-                                showToast("Added to cart! Total items: $count")
+                                Toast.makeText(this@MainActivity, "Added to cart! Total items: $count", Toast.LENGTH_SHORT).show()
                             }
                         )
                         recyclerView.adapter = adapter
@@ -109,6 +102,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showToast(message: String) {
-        android.widget.Toast.makeText(this, message, android.widget.Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 }
