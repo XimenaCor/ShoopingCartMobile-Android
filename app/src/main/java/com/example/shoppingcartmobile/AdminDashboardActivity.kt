@@ -1,5 +1,6 @@
 package com.example.shoppingcartmobile
 
+import android.content.Intent  // ← ADD THIS
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -15,6 +16,12 @@ class AdminDashboardActivity : AppCompatActivity() {
             AdminLoginActivity.logout(this)
             finish() // Go back to login
             Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
+        }
+
+        // Manage Products button - ADD THIS
+        findViewById<Button>(R.id.btnManageProducts).setOnClickListener {
+            val intent = Intent(this, AdminProductsActivity::class.java)
+            startActivity(intent)
         }
 
         // Back button in toolbar

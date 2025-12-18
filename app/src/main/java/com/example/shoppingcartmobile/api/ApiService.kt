@@ -25,4 +25,17 @@ interface ApiService {
 
     @POST("/cart/clear")
     suspend fun clearCart(): Response<Void>
+
+    // ADMIN PRODUCT MANAGEMENT
+    @POST("/api/products")
+    suspend fun createProduct(@Body product: Product): Response<Product>
+
+    @PUT("/api/products/{id}")
+    suspend fun updateProduct(
+        @Path("id") id: Long,
+        @Body product: Product
+    ): Response<Product>
+
+    @DELETE("/api/products/{id}")
+    suspend fun deleteProduct(@Path("id") id: Long): Response<Void>
 }

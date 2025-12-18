@@ -57,6 +57,16 @@
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.ShoppingCartMobile" />
 
+        <activity
+            android:name=".AdminProductsActivity"
+            android:parentActivityName=".AdminDashboardActivity"
+            android:theme="@style/Theme.ShoppingCartMobile" />
+
+        <activity
+            android:name=".ProductFormActivity"
+            android:parentActivityName=".AdminProductsActivity"
+            android:theme="@style/Theme.ShoppingCartMobile" />
+
     </application>
 
 </manifest>
