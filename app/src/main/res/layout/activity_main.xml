@@ -40,7 +40,6 @@
                 android:padding="8dp"
                 android:contentDescription="Cart" />
 
-            <!-- Add next to cart icon -->
             <ImageView
                 android:id="@+id/ivMaps"
                 android:layout_width="wrap_content"
@@ -51,7 +50,6 @@
                 android:layout_marginStart="8dp"
                 android:contentDescription="Store Locations" />
 
-            <!-- Add this next to maps icon -->
             <ImageView
                 android:id="@+id/ivAdmin"
                 android:layout_width="wrap_content"

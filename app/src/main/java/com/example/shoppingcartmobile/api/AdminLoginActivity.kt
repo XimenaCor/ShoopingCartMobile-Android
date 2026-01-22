@@ -23,7 +23,6 @@ class AdminLoginActivity : AppCompatActivity() {
         private const val ADMIN_USERNAME = "admin"
         private const val ADMIN_PASSWORD = "admin123"
 
-        // ADD THESE INSIDE THE SAME companion object:
         fun isAdminLoggedIn(context: android.content.Context): Boolean {
             val prefs = context.getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
             return prefs.getBoolean(KEY_IS_LOGGED_IN, false)
@@ -39,7 +38,6 @@ class AdminLoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_login)
 
-        // Initialize views
         etUsername = findViewById(R.id.etUsername)
         etPassword = findViewById(R.id.etPassword)
         btnLogin = findViewById(R.id.btnLogin)
@@ -82,7 +80,6 @@ class AdminLoginActivity : AppCompatActivity() {
     }
 
     private fun goToAdminDashboard() {
-        // FIX: Use fully qualified class name
         val intent = Intent(this@AdminLoginActivity, AdminDashboardActivity::class.java)
         startActivity(intent)
         finish()

@@ -12,7 +12,7 @@ import com.example.shoppingcartmobile.Product
 class ProductAdapter(
     private val products: List<Product>,
     private val onItemClick: (Product) -> Unit,
-    private val onAddToCart: (Product) -> Unit  // NEW: Add to cart callback
+    private val onAddToCart: (Product) -> Unit 
 ) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -38,7 +38,6 @@
             android:textStyle="bold"
             android:layout_marginBottom="32dp" />
 
-        <!-- Add this after the title TextView but before the Logout button -->
 
         <Button
             android:id="@+id/btnManageProducts"

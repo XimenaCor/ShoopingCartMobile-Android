@@ -100,13 +100,11 @@ class CartActivity : AppCompatActivity() {
         // Clear cart after checkout
         cartManager.clearCart()
 
-        // SIMPLIFIED: Just go back to previous activity
         finish()
     }
 
     override fun onResume() {
         super.onResume()
-        // Refresh cart when returning to this activity
         loadCartItems()
     }
 }

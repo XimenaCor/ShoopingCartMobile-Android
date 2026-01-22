@@ -1,6 +1,6 @@
 package com.example.shoppingcartmobile
 
-import android.content.Intent  // ← ADD THIS
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
@@ -18,7 +18,7 @@ class AdminDashboardActivity : AppCompatActivity() {
             Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
         }
 
-        // Manage Products button - ADD THIS
+        // Manage Products button
         findViewById<Button>(R.id.btnManageProducts).setOnClickListener {
             val intent = Intent(this, AdminProductsActivity::class.java)
             startActivity(intent)

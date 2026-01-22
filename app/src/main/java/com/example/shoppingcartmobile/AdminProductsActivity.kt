@@ -122,7 +122,6 @@ class AdminProductsActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        // Refresh when returning from edit/add
         loadProducts()
     }
 }

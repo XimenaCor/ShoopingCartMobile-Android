@@ -27,16 +27,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // FORCE STREET MAP VIEW (not satellite)
         mMap.mapType = GoogleMap.MAP_TYPE_NORMAL
 
-        // Granada CITY CENTER coordinates
         val granada = LatLng(37.1765, -3.5979)
 
-        // Center on Granada with good zoom level
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(granada, 14f))
 
-        // Add marker for user location (Granada)
         mMap.addMarker(
             MarkerOptions()
                 .position(granada)
@@ -44,7 +40,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 .snippet("Granada City Center")
         )
 
-        // Add 3 store locations IN THE CITY
         val stores = listOf(
             Triple(LatLng(37.1780, -3.6000), "Main Store", "Granada City Center"),
             Triple(LatLng(37.1750, -3.5950), "Warehouse", "Near Train Station"),

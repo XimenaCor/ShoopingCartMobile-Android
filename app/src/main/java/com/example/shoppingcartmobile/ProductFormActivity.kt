@@ -21,7 +21,7 @@ class ProductFormActivity : AppCompatActivity() {
     private lateinit var btnSave: Button
     private lateinit var tvTitle: TextView
 
-    private var productId: Long? = null // null for new, value for edit
+    private var productId: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
